@@ -1,0 +1,5 @@
+# Machine-local overrides and secrets
+settings.local.json
+.env
+.env.*
+.DS_Store
