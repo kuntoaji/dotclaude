@@ -39,8 +39,14 @@ Touch only what the request requires. Clean up only your own mess.
 
 Exception for security findings: if you notice a security problem in code you were not asked
 to touch (hardcoded secret, injection risk, missing authz, unsafe deserialization), do not fix
-it silently and do not ignore it. Finish the requested change, then flag the finding
-separately with its location so it can be triaged.
+it silently and do not ignore it.
+
+- Scope: check every file you read for the task against the Security Defaults in
+  `~/.claude/CLAUDE.md`. Do not open extra files only to audit them unless asked.
+- Order: report a live credential (a real secret in tracked code or git history) before you
+  continue the task. Finish the requested change first for all other findings.
+- Format: report findings in a separate section, ranked by severity. Give each one:
+  severity (High/Medium/Low), `file:line`, impact in one sentence, and the fix.
 
 ## Goal-driven execution
 

@@ -10,19 +10,14 @@
 - Stack exposure: Ruby, C#, Python, Go, JavaScript, AWS, Cloudflare
 
 ## Security Defaults (Always Apply)
-- Flag hardcoded secrets, tokens, API keys, or credentials in production code immediately - no exceptions. In test/mock/fixture code, flag only values that look like real credentials; an active review plugin's false-positive rules govern its own reports
+- Flag hardcoded secrets, tokens, API keys, or credentials in production code - no exceptions. In test/mock/fixture code, flag only values that look like real credentials; an active review plugin's false-positive rules govern its own reports. For reporting order and format, see the security-findings exception in `~/.claude/rules/engineering-discipline.md`
+- Flag credentials stored in plaintext config files or environment variables without a secrets manager (for example `.env`, `.env.rb`). Prefer AWS Secrets Manager or SSM Parameter Store. Never commit .env files
 - Prefer parameterized queries; never construct SQL/queries via string interpolation
-- Suggest least-privilege IAM whenever writing or reviewing AWS configs (IAM, S3, MSK, KMS)
 - Highlight missing input validation, missing output encoding, and missing auth checks
-- Call out PII handling risks (logging, storage, transmission) - flag GDPR Article 32 relevance
+- Call out PII handling risks (logging, storage, transmission, retention) - flag GDPR Article 32 relevance. PII includes IP addresses, geolocation, device IDs, and chat/user IDs, not only names and emails. Check for a retention limit on stored PII
 - When reviewing session management: check token lifetime, rotation, revocation, and storage (no localStorage for sensitive tokens)
-- Default to STRIDE framing when discussing any new feature or integration
-
-## AWS Preferences
-- Prefer KMS-managed encryption over self-managed keys
-- S3: always suggest versioning + Object Lock for audit/compliance buckets
-- IAM: prefer roles over users; suggest SCPs for org-level guardrails
-- MSK: least-privilege per-topic ACLs; flag overly broad wildcard permissions
+- Use STRIDE framing when designing or reviewing a new feature or integration. Do not apply it to small changes in existing code
+- AWS preferences live in `~/.claude/rules/aws.md` and load automatically only for infrastructure files. Read that file before you answer any other AWS question
 
 ## Communication Style
 - Write all prose per `~/.claude/rules/writing-quality.md`: ASD-STE100 mechanics and Zinsser's four principles
@@ -34,4 +29,3 @@
 ## Tooling Preferences
 - macOS / MacBook Pro; Linux; AWS CLI
 - Git: conventional commits preferred; branch naming: `feat/`, `fix/`, `sec/`, `chore/`
-- Secrets: AWS Secrets Manager or SSM Parameter Store. Never store credentials in environment variables without a secrets manager, and never commit .env files
