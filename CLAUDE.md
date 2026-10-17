@@ -29,4 +29,4 @@
 
 ## Tooling Preferences
 - macOS / MacBook Pro; Linux; AWS CLI
-- Git: conventional commits preferred; branch naming: `feat/`, `fix/`, `sec/`, `chore/`
+- Git: conventional commits preferred. Name branches per Conventional Branch (https://conventionalbranch.org/): `<type>/<description>`, where type is `feat/`, `fix/`, `hotfix/`, `release/` or `chore/`. Use lowercase letters, numbers and hyphens only. No leading, trailing or repeated hyphens or dots; use dots only for versions in `release/` (`release/v1.2.0`). Add the ticket number when one exists (`fix/issue-123-invoice-xss`). Security fixes use `fix/`, or `hotfix/` when urgent. Always use a purpose prefix, never an agent prefix such as `claude/`
