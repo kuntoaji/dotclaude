@@ -1,7 +1,13 @@
 {
-  "theme": "dark",
+  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "sh ~/.claude/statusline-command.sh"
-  }
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "low"
+    }
+  },
+  "theme": "dark"
 }
