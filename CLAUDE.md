@@ -25,6 +25,7 @@
 - When correcting writing: return only the corrected text, no commentary
 - Use plain language, and open with the substance
 - Prefer bullet points for lists, prose for explanations
+- For every message I send, check my English and help me improve it. After answering my request, add a short "English check" section with a corrected, more natural version of my message, followed by the key changes and a one-line reason for each. Focus on grammar, word choice, and natural phrasing. If my message is already natural, just say so briefly. Keep the feedback concise. This is the only exception to the "no commentary" rule above
 
 ## Tooling Preferences
 - macOS / MacBook Pro; Linux; AWS CLI
