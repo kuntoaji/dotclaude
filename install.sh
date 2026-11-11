@@ -9,7 +9,7 @@ stamp=$(date +%Y%m%d%H%M%S)
 
 mkdir -p "$dest"
 
-for item in CLAUDE.md rules settings.json statusline-command.sh; do
+for item in CLAUDE.md rules settings.json skills statusline-command.sh; do
   src="$repo/$item"
   target="$dest/$item"
 

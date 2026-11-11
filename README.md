@@ -6,6 +6,8 @@ My personal Claude Code configuration.
 
 - `CLAUDE.md` - user-level instructions loaded in every session
 - `rules/` - user-level rules, loaded automatically from `~/.claude/rules/`
+- `skills/` - user-level skills, linked to `~/.claude/skills/`
+  - `socratic-tutor` - Socratic teaching session on an explicit "teach me", "quiz me", or "drill me" request, vendored from `janestreet/agent_skills` (MIT)
 - `settings.json` - user-level settings (theme, status line)
 - `statusline-command.sh` - status line showing user, host, directory, repo, branch, model, and remaining context (requires `jq`)
 
