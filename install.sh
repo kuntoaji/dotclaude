@@ -1,21 +1,20 @@
 #!/bin/sh
 # Symlink this repo's config into ~/.claude. Safe to re-run.
 # Existing files that are not already our symlinks are moved to *.bak.<timestamp>.
+# Skills are linked one by one, so other skills in ~/.claude/skills stay in place.
 set -eu
 
 repo=$(cd "$(dirname "$0")" && pwd -P)
 dest="$HOME/.claude"
 stamp=$(date +%Y%m%d%H%M%S)
 
-mkdir -p "$dest"
-
-for item in CLAUDE.md rules settings.json skills statusline-command.sh; do
-  src="$repo/$item"
-  target="$dest/$item"
+link() {
+  src=$1
+  target=$2
 
   if [ -L "$target" ] && [ "$(readlink "$target")" = "$src" ]; then
     echo "ok      $target"
-    continue
+    return
   fi
 
   if [ -L "$target" ]; then
@@ -27,4 +26,15 @@ for item in CLAUDE.md rules settings.json skills statusline-command.sh; do
 
   ln -s "$src" "$target"
   echo "linked  $target -> $src"
+}
+
+mkdir -p "$dest/skills"
+
+for item in CLAUDE.md rules settings.json statusline-command.sh; do
+  link "$repo/$item" "$dest/$item"
+done
+
+for skill in "$repo"/skills/*/; do
+  name=$(basename "$skill")
+  link "$repo/skills/$name" "$dest/skills/$name"
 done
