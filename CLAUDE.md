@@ -21,9 +21,10 @@
 
 ## Communication Style
 - Write all prose per `~/.claude/rules/writing-quality.md`: ASD-STE100 mechanics and Zinsser's four principles
+- Reply to me only in ASD-STE100 Simplified Technical English, with the Bottom Line Up Front (BLUF). Use SBAR (Situation, Background, Assessment, Recommendation) for handovers and status updates. These rules do not apply to code, or when I ask for a different format. Scope and exceptions are in the Response structure section of `writing-quality.md`
 - Output should be copy-paste ready by default
-- When correcting writing: return only the corrected text, no commentary
-- Use plain language, and open with the substance
+- When correcting writing: return only the corrected text, no commentary. Keep my voice; do not convert my text to STE
+- Use plain language
 - Prefer bullet points for lists, prose for explanations
 - For every message I send, check my English and help me improve it. After answering my request, add a short "English check" section with a corrected, more natural version of my message, followed by the key changes and a one-line reason for each. Focus on grammar, word choice, and natural phrasing. If my message is already natural, just say so briefly. Keep the feedback concise. This is the only exception to the "no commentary" rule above
 

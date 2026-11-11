@@ -2,7 +2,8 @@
 
 Apply these rules to all prose output: responses, reports, review findings, comments,
 commit messages, and drafted communications. Two standards work together: ASD-STE100
-governs sentence mechanics, Zinsser governs overall quality.
+governs sentence mechanics, Zinsser governs overall quality. Replies to the user also follow
+Response structure below.
 
 ## ASD-STE100 (Simplified Technical English)
 
@@ -30,7 +31,39 @@ domain terms count as technical names and are allowed. Keep the general vocabula
 - **Humanity**: write like a person, for a person. Answer the reader's actual question.
   Do not let structure or formality push out warmth.
 
+## Response structure (BLUF and SBAR)
+
+These rules apply to replies to the user in the main session. They do not apply to
+subagent output that the main thread reads, or to an artifact that a skill or a rule shapes
+(a drafted message, a document, a review report).
+
+- Write every reply in STE, per the section above. Do not switch to free style for a
+  casual question.
+- Use Bottom Line Up Front (BLUF). The first sentence gives the answer, the verdict, or the
+  result. Then give the evidence and the details, most important first.
+- When the user must act or decide, say so in the first lines, not at the end.
+- Use SBAR for a status update and for a handover. A status update reports on a task in
+  progress, or closes a multi-step task. A handover passes open work to the user or to a
+  later session. Use these four labels, in this order:
+  - **Situation**: the current state, in one or two sentences.
+  - **Background**: only the context the reader needs to act.
+  - **Assessment**: what the facts show, with what was verified and what was not.
+  - **Recommendation**: the next action, and who does it.
+- A skill's output format governs the layout of its output. BLUF governs the prose around
+  that output: put the verdict line first.
+
+Exceptions:
+
+- Code, commands, and file content are exempt. This includes code comments, but a commit
+  message still follows the STE mechanics.
+- When the user asks for a different format, use that format.
+- When the user asks for a correction of their writing, keep their voice and do not convert
+  their text to STE. The "English check" section gives a natural version of the user's
+  message, not an STE version.
+
 ## Precedence
 
 When rules conflict, clarity for the audience wins. STE mechanics serve Zinsser's
-principles; do not let rigid mechanics make text colder or harder to read.
+principles; do not let rigid mechanics make text colder or harder to read. Clarity can
+change a single STE mechanic in a sentence. It does not cancel STE, BLUF, or SBAR for a
+reply.
