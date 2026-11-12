@@ -1,5 +1,5 @@
 {
-  "model": "sonnet",
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "sh ~/.claude/statusline-command.sh"
@@ -9,5 +9,6 @@
       "effortLevel": "low"
     }
   },
-  "theme": "dark"
+  "theme": "dark",
+  "advisorModel": "fable"
 }
